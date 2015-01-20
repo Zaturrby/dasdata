@@ -1,13 +1,11 @@
 var fs = require("fs");
 
-var dataUnparsed  = fs.readFileSync("voyages_with_people.json", {encoding: "utf8"});
+var dataUnparsed  = fs.readFileSync("eriksgoedeversie.json", {encoding: "utf8"});
 data = JSON.parse(dataUnparsed);
 
 var mutatedData = [];
 var i = 0;
 while (i < data.length){
-	console.log(i);
-	console.log(data[i]);
 	// Checking for equal ID's
 	var j = 0;
 	var people = {};
