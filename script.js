@@ -65,9 +65,9 @@ while (i < data.length){
 	// adding year to tempData
 
 	var dateString = tempData["Date of departure"];
-	console.log(dateString);
+	var tempYear = dateString.slice(-4);
 
-	// console.log(tempData["Date of departure"].prototype);
+	tempData.year = tempYear;
 
 	// pushing the result
 	mutatedData.push(tempData);
