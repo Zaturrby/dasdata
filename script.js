@@ -4,9 +4,10 @@ var dataUnparsed  = fs.readFileSync("voyages_with_people.json", {encoding: "utf8
 data = JSON.parse(dataUnparsed);
 
 var mutatedData = [];
-
-for (var i = 0; i < data.length; i++){
-	
+var i = 0;
+while (i < data.length){
+	console.log(i);
+	console.log(data[i]);
 	// Checking for equal ID's
 	var j = 0;
 	var people = {};
@@ -29,13 +30,20 @@ for (var i = 0; i < data.length; i++){
 			}
 
 			j++;
+
+			if (data[(i+j)]) {
+				// nothing
+			} else {
+				idIsEqual = false;
+			}
+
 		} else {
 			idIsEqual = false;
 		}
 	}
 
+	// Constructing the tempData set
 	var tempData = {};
-
 	var keys = Object.keys(data[i]);
 	var declineKeys = {
 		"onbcategory": "onbcategory",
@@ -55,11 +63,23 @@ for (var i = 0; i < data.length; i++){
 	}
 
 	tempData.people = people;
+
+	// adding year to tempData
+
+	// console.log(String.charAt);
+
+	// tempData.year = 
+
+
+	// pushing the result
 	mutatedData.push(tempData);
 
+	// Making sure used array items are skipped
 	i += j; 
 }
 
-var stringifiedJSON = JSON.stringify(mutatedData); 
 
-console.log(stringifiedJSON);
+var stringifiedJSON = JSON.stringify(mutatedData); 
+fs.writeFileSync("voyages_with_people_concatted.json", stringifiedJSON);
+
+console.log("done");
