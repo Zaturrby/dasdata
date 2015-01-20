@@ -63,11 +63,13 @@ while (i < data.length){
 	tempData.people = people;
 
 	// adding year to tempData
-
 	var dateString = tempData["Date of departure"];
-	var tempYear = dateString.slice(-4);
 
-	tempData.year = tempYear;
+	if (dateString){
+		var tempYear = dateString.slice(-4);
+		tempData.year = tempYear;
+	}
+
 
 	// pushing the result
 	mutatedData.push(tempData);
