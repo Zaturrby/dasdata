@@ -34,8 +34,8 @@ for (var i = 0; i < data.length; i++){
 		}
 	}
 
+	// Constructing the tempData set
 	var tempData = {};
-
 	var keys = Object.keys(data[i]);
 	var declineKeys = {
 		"onbcategory": "onbcategory",
@@ -55,11 +55,23 @@ for (var i = 0; i < data.length; i++){
 	}
 
 	tempData.people = people;
+
+	// adding year to tempData
+
+	// console.log(String.charAt);
+
+	// tempData.year = 
+
+
+	// pushing the result
 	mutatedData.push(tempData);
 
+	// Making sure used array items are skipped
 	i += j; 
 }
 
-var stringifiedJSON = JSON.stringify(mutatedData); 
 
-console.log(stringifiedJSON);
+var stringifiedJSON = JSON.stringify(mutatedData); 
+fs.writeFileSync("voyages_with_people_concatted.json", stringifiedJSON);
+
+console.log("done");
